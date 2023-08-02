@@ -30,14 +30,14 @@ def generate_password(word_list, num_words, capitalize, num_numbers, num_symbols
 
     password = "".join(words)
 
-    if num_numbers > 0:
-        for _ in range(num_numbers):
-            password += str(random.randint(0, 9))
+    # Add numbers
+    for _ in range(num_numbers):
+        password += str(random.randint(0, 9))
 
-    if num_symbols > 0:
-        symbols = "!@#$%^&*.:;"
-        for _ in range(num_symbols):
-            password += random.choice(symbols)
+    # Add symbols
+    symbols = "!@#$%^&*.:;"
+    for _ in range(num_symbols):
+        password += random.choice(symbols)
 
     return password
 
