@@ -18,13 +18,15 @@ def read_wordlist(filename):
 def generate_password(word_list, num_words, capitalize, num_numbers, num_symbols):
     words = random.sample(word_list, num_words)
 
-    # Capitalize the first letter of the first word
-    if capitalize > 0:
-        words[0] = words[0].capitalize()
+    # Capitalize random words
+    for _ in range(capitalize):
+        index = random.randint(0, num_words - 1)
+        words[index] = words[index].capitalize()
 
-    # Lowercase all the words except the first one
-    for i in range(1, len(words)):
-        words[i] = words[i].lower()
+    # Lowercase all the words except the capitalized ones
+    for i in range(num_words):
+        if i >= capitalize:
+            words[i] = words[i].lower()
 
     password = "".join(words)
 
@@ -44,7 +46,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generate a secure, memorable password using the XKCD method")
     parser.add_argument("-w", "--words", type=int, default=4, help="include WORDS words in the password (default=4)")
     parser.add_argument("-c", "--caps", type=int, default=0,
-                        help="capitalize the first letter of CAPS random words (default=0)")
+                        help="capitalize CAPS random words in the password (default=0)")
     parser.add_argument("-n", "--numbers", type=int, default=0,
                         help="insert NUMBERS random numbers in the password (default=0)")
     parser.add_argument("-s", "--symbols", type=int, default=0,
