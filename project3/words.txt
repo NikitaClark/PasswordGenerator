@@ -1,0 +1,10 @@
+Apple
+Banana
+Cat
+Dog
+Elephant
+Frog
+Grape
+House
+Ice cream
+Jellyfish
