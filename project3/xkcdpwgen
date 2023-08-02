@@ -17,9 +17,14 @@ def read_wordlist(filename):
 
 def generate_password(word_list, num_words, capitalize, num_numbers, num_symbols):
     words = random.sample(word_list, num_words)
+
+    # Capitalize the first letter of the first word
     if capitalize > 0:
-        for _ in range(capitalize):
-            words[0] = words[0].capitalize()
+        words[0] = words[0].capitalize()
+
+    # Lowercase the rest of the words
+    for i in range(1, len(words)):
+        words[i] = words[i].lower()
 
     password = "".join(words)
 
