@@ -22,7 +22,7 @@ def generate_password(word_list, num_words, capitalize, num_numbers, num_symbols
     if capitalize > 0:
         words[0] = words[0].capitalize()
 
-    # Lowercase the rest of the words
+    # Lowercase all the words except the first one
     for i in range(1, len(words)):
         words[i] = words[i].lower()
 
